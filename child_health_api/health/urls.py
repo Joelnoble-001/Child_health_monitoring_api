@@ -1,14 +1,21 @@
-from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from health.views import ChildViewSet, HealthRecordViewSet, VaccinationViewSet
+from .views import (
+    HealthRecordViewSet, VaccinationViewSet,
+    ImmunizationViewSet, ClinicVisitViewSet, WeightRecordViewSet
+)
 
 router = DefaultRouter()
-router.register(r'children', ChildViewSet)
-router.register(r'health-records', HealthRecordViewSet)
-router.register(r'vaccinations', VaccinationViewSet)
+router.register(r"health-records", HealthRecordViewSet)
+router.register(r"vaccinations", VaccinationViewSet)
+router.register(r"immunizations", ImmunizationViewSet, basename="immunizations")
+router.register(r"visits", ClinicVisitViewSet, basename="visits")
+router.register(r"growth", WeightRecordViewSet, basename="growth")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path("", include(router.urls)),
+    # Custom endpoint for malnourished stats
+    path("stats/malnourished/", WeightRecordViewSet.as_view({"get": "malnourished"})),
 ]
+
+

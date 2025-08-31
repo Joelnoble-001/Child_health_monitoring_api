@@ -38,18 +38,7 @@ Built initial models, serializers, and viewsets
 Implemented CRUD endpoints with DRF routers
 Tested endpoints using Postman and Django’s browsable API
 
-Part 4 – Continue Building (Planned)
 
-Add authentication (Token-based)
-Create custom endpoints (e.g., vaccination history per child)
-Add filtering and searching
-Write unit tests
-
-Part 5 – Finalize & Submit (Planned)
-Deploy project to a hosting service (Render/Heroku)
-Add API documentation (Swagger/OpenAPI)
-Final testing and polish
-Submit project with documentation
 
 
 Tech Stack
@@ -59,7 +48,7 @@ Database: SQLite (dev), PostgreSQL (prod-ready)
 Tools: Postman, GitHub, Render
 
 📂 Project Structure
-Child_health_monitoring_api/
+child_health_monitoring_api/
     child_health_api/
     ├── child_health_api/        # Project settings
     ├── health/                  # App: models, serializers, views, urls
